@@ -85,6 +85,11 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: '\"Killing Me Softly\"',
+    date: "December 6, 666",
+    firstParagraph: ""
   }
 ];
 
@@ -113,7 +118,7 @@ const data = [
 
 */
 
-function createArticle(title, date, first, second, third) {
+function createArticle(data) {
   const newsArticle = document.createElement("div");
   const articleTitle = document.createElement("h2");
   const articleDate = document.createElement("p");
@@ -126,52 +131,37 @@ function createArticle(title, date, first, second, third) {
 
   newsArticle.append(articleTitle);
   newsArticle.append(articleDate);
-  articleTitle.append(paragraphOne);
-  articleTitle.append(paragraphTwo);
-  articleTitle.append(paragraphThree);
+  newsArticle.append(paragraphOne);
+  newsArticle.append(paragraphTwo);
+  newsArticle.append(paragraphThree);
   newsArticle.append(toggleButton);
 
   // add classes to elements
 
-  newsArticle.classList.add("article-open");
-  articleTitle.classList.add("articleTitle");
-  articleDate.classList.add("articleDate");
-  paragraphOne.classList.add("paragraphOne");
-  paragraphTwo.classList.add("paragraphTwo");
-  paragraphThree.classList.add("paragraphThree");
-  toggleButton.classList.add("article-open", "toggle-off");
+  newsArticle.classList.add("article");
+  articleDate.classList.add("date");
+  toggleButton.classList.add("expandButton");
 
   // text
 
-  articleTitle.textContent = title;
-  articleDate.textContent = date;
-  paragraphOne.textContent = first;
-  paragraphTwo.textContent = second;
-  paragraphThree.textContent = third;
+  articleTitle.textContent = data.title;
+  articleDate.textContent = data.date;
+  paragraphOne.textContent = data.firstParagraph;
+  paragraphTwo.textContent = data.secondParagraph;
+  paragraphThree.textContent = data.thirdParagraph;
   toggleButton.textContent = "EXPAND";
 
   // functionality
 
-  toggleButton.addEventListener("click", function(event) {
-    this.style.backgroundColor = "red";
-    toggleButton.classList.toggle("article-open");
-  });
+  toggleButton.addEventListener("click", e =>
+    newsArticle.classList.toggle("article-open")
+  );
 
   return newsArticle;
 }
 
 const menuCard = document.querySelector(".articles");
 
-data.forEach(element => {
-  menuCard.append(
-    createArticle(
-      element.title,
-      element.date,
-      element.first,
-      element.second,
-      element.third
-    )
-  );
-});
+data.forEach(i => menuCard.append(createArticle(i)));
 
 // one object??
