@@ -87,9 +87,14 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   },
   {
-    title: '\"Killing Me Softly\"',
+    title: '"Killing Me Softly"',
     date: "December 6, 666",
-    firstParagraph: ""
+    firstParagraph:
+      "There once was a girl named Katherine, who joined Lambda School and met a rabbit. The rabbit was grey, with stripes of scarlet. He wiggled his ears and bat his eyes and let it be known with a resounding cheer, that everyone followed was doomed to become plagued with hysteria.",
+    secondParagraph:
+      "She followed hesitantly, beseigned with alluring visions of what was to come. And never realized the sun was being swallowed by an enormous figure.",
+    thirdParagraph:
+      "It was the Lambda Cthulhu, and it ensnared her with a laugh and drowned her in the deep with the other Ancient Ones.The End."
   }
 ];
 
