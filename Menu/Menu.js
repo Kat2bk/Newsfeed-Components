@@ -35,18 +35,24 @@ let menuItems = [
 */
 
 function createMenu(array) {
-  // const studentsI = document.createElement("li");
-  // const facultyI = document.createElement("li");
-  // const whatsNewI = document.createElement("li");
-  // const techTrendI = document.createElement("li");
-  // const musicI = document.createElement("li");
-  // const logOutI = document.createElement("li");
+  const menu = document.createElement("div");
+  const ulItem = document.createElement("ul");
 
-  menuItems.forEach(function(item, index, array) {
-    document.createElement("li");
-    menuItems.push(hamburger);
+  menu.classList.add("menu");
+
+  menu.append(ulItem);
+
+  array.forEach(function(item, index, array) {
+   const display = document.createElement("li");
+   display.textContent = item;
+   ulItem.append(display);
   });
 
-  const hamburger = document.querySelector(".menu-button");
-  hamburger.addEventListener("click", function(event) {});
+  const hamburgerButton = document.querySelector(".menu-button");
+  hamburgerButton.addEventListener("click", function(event) {
+    menu.classList.toggle("menu--open");
+  });
+  return menu;
 }
+
+
